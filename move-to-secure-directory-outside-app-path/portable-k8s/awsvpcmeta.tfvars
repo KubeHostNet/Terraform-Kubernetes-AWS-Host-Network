@@ -1,0 +1,1 @@
+k8s_region = "us-west-2"
