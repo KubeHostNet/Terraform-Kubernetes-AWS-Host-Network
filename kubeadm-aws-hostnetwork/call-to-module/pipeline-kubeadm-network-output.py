@@ -4,4 +4,8 @@
 import subprocess
 import os 
 
-subprocess.run("terraform output", shell=True, check=True)
+try:
+    subprocess.run("terraform output", shell=True, check=True)
+except Exception as e:
+    print("stdout output:\n", e.output)
+    sys.exit()

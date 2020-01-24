@@ -4,6 +4,10 @@
 import subprocess
 import os 
 
-subprocess.run("terraform init", shell=True, check=True)
+try:
+    subprocess.run("terraform init", shell=True, check=True)
 
-subprocess.run("terraform apply -auto-approve -var-file="+os.environ['TF_VAR_PATH_TO_K8S_IAM_KEYS']+"awspublickey.tfvars -var-file="+os.environ['TF_VAR_PATH_TO_K8S_IAM_KEYS']+"awsvpcmeta.tfvars -var-file="+os.environ['TF_VAR_PATH_TO_K8S_IAM_KEYS']+"awskeymeta.tfvars", shell=True, check=True)
+    subprocess.run("terraform apply -auto-approve -var-file="+os.environ['TF_VAR_PATH_TO_K8S_IAM_KEYS']+"awspublickey.tfvars -var-file="+os.environ['TF_VAR_PATH_TO_K8S_IAM_KEYS']+"awsvpcmeta.tfvars -var-file="+os.environ['TF_VAR_PATH_TO_K8S_IAM_KEYS']+"awskeymeta.tfvars", shell=True, check=True)
+except Exception as e:
+    print("stdout output:\n", e.output)
+    sys.exit()
