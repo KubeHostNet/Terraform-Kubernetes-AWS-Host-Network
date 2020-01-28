@@ -44,10 +44,12 @@ systemctl restart sshd
 # Now load and run the script to check for redundant repo.  This is a patch for a specific redundancy that appeared.  Should either isolate and treat the cause of the redundancy instead, or handle redundancies more generally.
 mkdir /home/kubernetes-host/scripts
 mkdir /home/kubernetes-host/pod-network-yaml
+sudo chown -R kubernetes-host:kubernetes-host /home/kubernetes-host/pod-network-yaml/
 
 # Get and run a script to fix a repo problem resulting from AWS' Amazon Linux 2 build process
 cd /home/kubernetes-host/
-sudo git clone https://github.com/greenriverit/ansible-kubernetes-kubeadm-playbooks.git && echo "git clone operation succeeded"
+sudo git clone https://github.com/KubeHostNet/ansible-kubernetes-kubeadm-playbooks.git && echo "git clone operation succeeded"
+
 ls -al /home/kubernetes-host/
 sudo chown -R kubernetes-host:kubernetes-host /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks
 ### Configure and run script to fix an error resulting from AWS' Amazon Linux 2 build process
@@ -57,9 +59,10 @@ sudo dos2unix /home/kubernetes-host/scripts/removeRedundantRepo.sh
 chmod +x /home/kubernetes-host/scripts/removeRedundantRepo.sh
 /home/kubernetes-host/scripts/removeRedundantRepo.sh
 
-sudo mv /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/calico.yaml /home/kubernetes-host/pod-network-yaml/
-sudo mv /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/rbac-kbb.yaml /home/kubernetes-host/pod-network-yaml/
-sudo chown -R kubernetes-host:kubernetes-host /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/
+sudo mv /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/calico.yaml /home/kubernetes-host/pod-network-yaml
+sudo mv /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/rbac-kbb.yaml /home/kubernetes-host/pod-network-yaml
+#sudo chown -R kubernetes-host:kubernetes-host /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/
+sudo chown -R kubernetes-host:kubernetes-host /home/kubernetes-host/pod-network-yaml/
 
 # Get and configure firewalld and python-firewalld so that Ansible playbooks work as intended.
 sudo yum install -y dbus-glib-devel  dbus-glib python-slip-dbus dbus-python firewalld
