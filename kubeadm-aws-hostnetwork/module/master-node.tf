@@ -60,7 +60,7 @@ chmod +x /home/kubernetes-host/scripts/removeRedundantRepo.sh
 /home/kubernetes-host/scripts/removeRedundantRepo.sh
 
 sudo mv /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/calico.yaml /home/kubernetes-host/pod-network-yaml
-sudo mv /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/rbac-kbb.yaml /home/kubernetes-host/pod-network-yaml
+sudo mv /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/rbac-kdd.yaml /home/kubernetes-host/pod-network-yaml
 #sudo chown -R kubernetes-host:kubernetes-host /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/
 sudo chown -R kubernetes-host:kubernetes-host /home/kubernetes-host/pod-network-yaml/
 
