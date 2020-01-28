@@ -59,6 +59,7 @@ chmod +x /home/kubernetes-host/scripts/removeRedundantRepo.sh
 
 sudo mv /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/calico.yaml /home/kubernetes-host/pod-network-yaml/
 sudo mv /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/rbac-kbb.yaml /home/kubernetes-host/pod-network-yaml/
+sudo chown -R kubernetes-host:kubernetes-host /home/kubernetes-host/ansible-kubernetes-kubeadm-playbooks/pod-network-yaml/
 
 # Get and configure firewalld and python-firewalld so that Ansible playbooks work as intended.
 sudo yum install -y dbus-glib-devel  dbus-glib python-slip-dbus dbus-python firewalld
