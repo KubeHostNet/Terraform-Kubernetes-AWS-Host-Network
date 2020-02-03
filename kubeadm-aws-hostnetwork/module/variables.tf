@@ -18,5 +18,6 @@ variable "min_worker_nodes" { }
 output "security_group_id_kubernetes_nodes" { value = "${aws_security_group.kubernetes-nodes.id}" }
 output "vpc_id_kubernetes" { value = "${aws_vpc.kubernetes-host.id}" }
 output "cidr_subnet_list_kubernetes" { value = "${aws_subnet.kubernetes-host.*.cidr_block}" }
+output "cidr_subnet_list_kubernetes_control" { value = "${aws_subnet.kubernetes-control-plane.cidr_block}" }
 output "route_table_id_kubernetes_host" { value = "${aws_route_table.kubernetes-host.id}" }
 output "cidr_vpc_kubernetes" { value = "${aws_vpc.kubernetes-host.cidr_block}" }
