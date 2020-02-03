@@ -18,7 +18,7 @@ resource "aws_subnet" "kubernetes-host" {
 
 resource "aws_subnet" "kubernetes-control-plane" {
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
-  cidr_block        = "10.1.40.0/24"
+  cidr_block        = "10.1.0.257/24"
   vpc_id            = "${aws_vpc.kubernetes-host.id}"
 }
 
