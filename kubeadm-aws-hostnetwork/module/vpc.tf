@@ -12,13 +12,13 @@ resource "aws_vpc" "kubernetes-host" {
 resource "aws_subnet" "kubernetes-host" {
   count = 2
   availability_zone = "${data.aws_availability_zones.available.names[count.index]}"
-  cidr_block        = "10.1.${count.index}.0/24"
+  cidr_block        = "10.1.${count.index}.0/25"
   vpc_id            = "${aws_vpc.kubernetes-host.id}"
 }
 
 resource "aws_subnet" "kubernetes-control-plane" {
   availability_zone = "${data.aws_availability_zones.available.names[0]}"
-  cidr_block        = "10.1.0.257/24"
+  cidr_block        = "10.1.0.128/25"
   vpc_id            = "${aws_vpc.kubernetes-host.id}"
 }
 
