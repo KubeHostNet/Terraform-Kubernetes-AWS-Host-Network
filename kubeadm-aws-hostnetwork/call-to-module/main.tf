@@ -23,7 +23,7 @@ variable "name_of_ssh_key" { }
 output "security_group_id_kubernetes_nodes" { value = "${module.kubeadm-aws-hostnetwork.security_group_id_kubernetes_nodes}" }
 output "vpc_id_kubernetes" { value = "${module.kubeadm-aws-hostnetwork.vpc_id_kubernetes}" }
 output "cidr_subnet_list_kubernetes" { value = "${module.kubeadm-aws-hostnetwork.cidr_subnet_list_kubernetes}" }
-output "cidr_subnet_list_k8s_control" { value = "${module.kubeadm-aws-hostnetwork.cidr_subnet_list_k8s_control}" }
+#output "cidr_subnet_list_k8s_control" { value = "${module.kubeadm-aws-hostnetwork.cidr_subnet_list_k8s_control}" }
 output "cidr_vpc_kubernetes" { value = "${module.kubeadm-aws-hostnetwork.cidr_vpc_kubernetes}" }
 output "route_table_id_kubernetes_host" { value = "${module.kubeadm-aws-hostnetwork.route_table_id_kubernetes_host}" }
 

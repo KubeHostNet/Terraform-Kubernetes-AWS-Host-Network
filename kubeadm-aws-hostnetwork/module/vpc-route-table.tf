@@ -11,10 +11,3 @@ resource "aws_route" "everyone" {
   gateway_id = "${aws_internet_gateway.kubernetes-host.id}"
   depends_on                = ["aws_route_table.kubernetes-host"]
 }
-
-resource "aws_route" "return-to-acm" {
-  route_table_id            = "${aws_route_table.kubernetes-host.id}"
-  destination_cidr_block = "10.0.0.0/16"
-  gateway_id = "${aws_internet_gateway.kubernetes-host.id}"
-  depends_on                = ["aws_route_table.kubernetes-host"]
-}

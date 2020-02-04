@@ -104,8 +104,8 @@ resource "aws_instance" "k8s-master-host" {
   user_data_base64 = "${base64encode(local.k8s-host-userdata)}"
   source_dest_check           = false
   vpc_security_group_ids      = ["${aws_security_group.kubernetes-nodes.id}"]
-  #subnet_id                   = "${aws_subnet.kubernetes-host.*.id[count.index]}"
-  subnet_id                   = "${aws_subnet.kubernetes-control-plane.id}"
+  subnet_id                   = "${aws_subnet.kubernetes-host.*.id[count.index]}"
+  #subnet_id                   = "${aws_subnet.kubernetes-control-plane.id}"
 
   tags = { Name = "k8smaster" }
 
